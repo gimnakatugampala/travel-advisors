@@ -5,7 +5,6 @@ import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined'
 import { Rating } from '@material-ui/lab'
 
 import useStyles from './styles'
-import { useState } from 'react'
 
 const Map = ({setCoordinates,setBounds,coordinates,places,setChildClicked,WeatherData}) => {
 
@@ -16,7 +15,7 @@ const Map = ({setCoordinates,setBounds,coordinates,places,setChildClicked,Weathe
 
     return (
         <div className={classes.mapContainer}>
-            <GoogleMapReact bootstrapURLKeys={{key:'AIzaSyAI1XlaLyjqOyeIKvZIJBx_22LpJQeZ-kg'}} defaultCenter={coordinates} center={coordinates} defaultZoom={14} margin={[50,50,50,50]} options={''} onChange={(e) => { setCoordinates({lat:e.center.lat ,lng:e.center.lng}); setBounds({ne:e.marginBounds.ne,sw:e.marginBounds.sw})}} onChildClick={(child) => setChildClicked(child)}>
+            <GoogleMapReact bootstrapURLKeys={{key:process.env.REACT_APP_GOOGLE_MAPS_API_KEY}} defaultCenter={coordinates} center={coordinates} defaultZoom={14} margin={[50,50,50,50]} options={''} onChange={(e) => { setCoordinates({lat:e.center.lat ,lng:e.center.lng}); setBounds({ne:e.marginBounds.ne,sw:e.marginBounds.sw})}} onChildClick={(child) => setChildClicked(child)}>
 
                 {places?.map((place,i) => (
                     <div className={classes.markerContainer} lat={Number(place.latitude)} lng={Number(place.longitude)} key={i}>

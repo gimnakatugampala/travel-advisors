@@ -13,8 +13,8 @@ const Header = ({setCoordinates}) => {
     const onLoad = (autoC) => setAutocomplate(autoC)
 
     const onPlaceChanged = () =>{
-        const lat = autocomplate.getPlace().geomerty.location.lat()
-        const lng = autocomplate.getPlace().geomerty.location.lng()
+        const lat = autocomplate.getPlace().geometry.location.lat()
+        const lng = autocomplate.getPlace().geometry.location.lng()
 
         setCoordinates({lat,lng})
     }
